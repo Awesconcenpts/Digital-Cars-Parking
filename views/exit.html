@@ -1,0 +1,56 @@
+<span class="heading">Parking Exit</span><br/>
+<div class="header">
+    <div class="col-lg-8">
+        <p>{{ 'app_name' | config:this }}</p>
+        <p>{{ 'address_line1' | config:this }}</p>
+        <p>{{ 'address_line2' | config:this }}</p>
+    </div>
+    <div class="col-lg-4"><a class="button pull-right" href="/">EXIT</a></div>
+</div>
+<div class="col-lg-12">
+        <div class="left-contents">
+            <div class="image">
+                <img src="{{ data.image }}" />
+            </div>
+        </div>
+        <div class="right-contents">
+            <div class="row">
+                <div class="col-lg-6 no-padding-right">
+                    <label>Welcome</label>
+                    <input type="text" class="form-control" value="{{ data.name }}">
+                </div>
+                <div class="col-lg-6">
+                    <label>Last 4 Digit Credit Card</label>
+                    <input type="text" maxlength="4" class="form-control" value="{{ data.security }}">
+                </div>
+                <div class="clearfix space"></div>
+                <div class="col-lg-8 no-padding-right">
+                    <label>Today's rate</label>
+                    <div class="today-rate">
+                        <span class="daily">Daily:</span>
+                        <span class="daily-rate">{{ 'currency' | config:this }}{{ 'day_rate' | config:this }}/day</span>
+                        <span class="hourly">Hourly:</span>
+                        <span class="hourly-rate">{{ 'currency' | config:this }}{{ 'hourly_rate' | config:this }}/hour</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <label>Total</label>
+                    <input type="text" class="form-control rate-input" value="{{ data | total:this }}">
+                </div>
+                <div class="clearfix space"></div>
+                <div class="col-lg-6 no-padding-right">
+                    <label>Enter time</label>
+                    <div class="enter-time">
+                        Date: {{data.from | enterdate}} <br>Time: {{ data.from | entertime }}
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Exit time</label>
+                    <div class="time-exit">
+                        Date: {{'' | currentdate}} <br>Time: {{ clock }}
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
