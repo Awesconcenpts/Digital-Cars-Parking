@@ -1,10 +1,3 @@
-##Welcome = http://localhost:3000/
-
-##Enter = http://localhost:3000/enter.html
-
-##Exit = http://localhost:3000/exit.html
-
-##List = http://localhost:3000/list.html
 
 One JSON file for these all pages assets/jsons/customers.json
 
