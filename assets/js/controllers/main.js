@@ -24,7 +24,11 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
                 }); 
             }
         ]);
-    mockups.controller('home', function($scope) {	 		
+    mockups.controller('home', function($scope) {
+        $scope.startScan = function () {
+            alert("From Home Controller")
+            Mockups.startScan();
+        }
     });
     mockups.controller('enter', function($scope) {
         $scope.data=toView.data;

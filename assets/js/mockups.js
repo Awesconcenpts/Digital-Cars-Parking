@@ -7,6 +7,10 @@ var Mockups={
             },500)
             
         })
+    },
+    startScan:function(){
+        alert("From Mockups.startScan()");
+    
     }
 }
 jQuery(function(){
