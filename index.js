@@ -5,8 +5,10 @@ var cookieParser = require('cookie-parser');
 var path = require('path');
 var fs = require('fs');
 var ejs = require('ejs');
+
 global.args={};
 var front = require('./routes/front');
+global.hyperAgent = require('./hyperAgent');
 global.args.path=path;
 global.args.request={};
 global.args.root = path.resolve(__dirname);

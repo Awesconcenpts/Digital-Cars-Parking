@@ -24,10 +24,15 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
                 }); 
             }
         ]);
-    mockups.controller('home', function($scope) {
+    mockups.controller('home', function($scope,$http,$location) {
         $scope.startScan = function () {
-            alert("From Home Controller")
-            Mockups.startScan();
+            var mainInfo = $http.get('startScan.json').success(function(response) {
+                // you have received user profile here;
+                console.log(response);
+                toView.data=response.user_profile; 
+                // lets redirect to router
+                $location.path(response.dynamic_router);
+            });
         }
     });
     mockups.controller('enter', function($scope) {
