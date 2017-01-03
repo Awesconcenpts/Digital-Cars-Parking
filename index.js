@@ -15,6 +15,7 @@ global.args.root = path.resolve(__dirname);
 global.args.fs=fs;
 global.args.ejs=ejs;
 global.args.toView={};
+global.args.waiting_list=new Array();
 global.args.configs=require('./resources/configs.json');
 var aps = express();
 aps.use(bodyParser.json());

@@ -30,7 +30,7 @@ exports.startScan = function() {
     */
    /* this is scaned result of user and I am returning it to client  */
    /* set dynamic router router enter.html or exit.html */
-   var dynamic_router='enter.html'; // this may come after system scan
+   var dynamic_router='waiting.html'; // this may come after system scan
     return {"user_profile":{"image":"images/default.jpg","name":"Krishna Sharma","date":"987897979","from":"","to":"","security":"7787"},"dynamic_router":dynamic_router};
    //alert("From Mockups.startScan() 1000 ");// + gMacid + " " + this.gMacid);	
    //bleacon.startScanning(/*uuid,major,minor*/);

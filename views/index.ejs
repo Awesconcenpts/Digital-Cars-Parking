@@ -14,13 +14,14 @@ var toView={"data":<%- JSON.stringify(args.toView) %>,"config":<%- JSON.stringif
 </script>
 <script type="text/javascript" src="/js/controllers/main.js"></script>
 <script type="text/javascript" src="/js/filters/common.js"></script>
+<script type="text/javascript" src="/js/factories/common.js"></script>
 <script type="text/javascript" src="/js/mockups.js"></script>
 <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="/css/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body ng-app="mockups" class="loading">
 <div class="container full-height vertical-center">
-    <section class="col-lg-8">
+    <section class="col-lg-9">
             <div class="app-box text-center"  ng-model="data">
                 <div class="wrap">
                     <div ng-view></div>

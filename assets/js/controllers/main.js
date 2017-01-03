@@ -18,6 +18,15 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
                     templateUrl : 'load/exit.html',
                     controller  : 'exit',
                 })
+                .when('/waiting.html', {
+                    resolve: {
+                        responseData: function(Factory) {
+                            return Factory.getWaitingList('waiting.json').then(function(res){ return res.data; });
+                        },
+                    },
+                    templateUrl : 'load/waiting.html',
+                    controller  : 'waiting',
+                })
                 $locationProvider.html5Mode({
                  enabled: true,
                  requireBase: false
@@ -42,6 +51,15 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
     mockups.controller('list', function($scope) {
         $scope.data=toView.data;
         tick(true);
+    });
+    mockups.controller('waiting', function($scope,responseData) {
+        $scope.waiting_list=responseData;
+        $scope.data=responseData[0];
+        tick(true);
+        $scope.changeUserDetails=function(id){
+            var found=$scope.waiting_list.filter(function(e) {return e.id == id;});
+            $scope.data=found[0];
+        }
     });
     mockups.controller('exit', function($scope) {
         $scope.data=toView.data;

@@ -291,3 +291,15 @@ body{
 			-o-transform-origin: center center;
 			transform-origin: center center;
 		}
+                .waiting-list{
+                    float: left;
+                    padding: 10px 15px;
+                    background-color:#f9f9f9;
+                    cursor:pointer;
+                }
+                .waiting-list:hover{
+                    background-color:#e5e5e5;
+                }
+                .waiting-list span{
+                    font-size:11px;
+                }
