@@ -35,6 +35,7 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
         ]);
     mockups.controller('home', function($scope,$http,$location) {
         $scope.startScan = function () {
+        	
             var mainInfo = $http.get('startScan.json').success(function(response) {
                 // you have received user profile here;
                 console.log(response);
@@ -52,7 +53,7 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
         $scope.data=toView.data;
         tick(true);
     });
-    mockups.controller('waiting', function($scope,responseData) {
+    mockups.controller('waiting', function($scope,responseData,Factory) {
         $scope.waiting_list=responseData;
         $scope.data=responseData[0];
         tick(true);
@@ -60,6 +61,13 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
             var found=$scope.waiting_list.filter(function(e) {return e.id == id;});
             $scope.data=found[0];
         }
+        $scope.updateWaitingList=function(){
+        	Factory.getWaitingList('waiting.json').then(function(res){ 
+        		$scope.waiting_list=res.data;
+        		setTimeout($scope.updateWaitingList,1000)
+        	});
+        }
+        $scope.updateWaitingList();
     });
     mockups.controller('exit', function($scope) {
         $scope.data=toView.data;
