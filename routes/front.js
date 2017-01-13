@@ -46,39 +46,20 @@ router.get('/startScan.json', function(req, res, next) {
     res.json(scaned_result);
 });
 router.get('/waiting.json', function(req, res, next) {
-
-    args.waiting_list=[
-        {
-            "userInParking":false,
-            "id":"22",
-            "image":"images/default.jpg",
-            "name":"Krishna Sharma",
-            "date":"987897979",
-            "from":"",
-            "to":"",
-            "security":"7787"
-        },
-        {
-            "userInParking":false,
-            "id":"33",
-            "image":"images/default.jpg",
-            "name":"Fred Afra",
-            "date":"987897979",
-            "from":"",
-            "to":"",
-            "security":"7787"
-        },
-        {
-            "userInParking":true,
-            "id":"34",
-            "image":"images/default.jpg",
-            "name":"Daniel few",
-            "date":"987897979",
-            "from":"",
-            "to":"",
-            "security":"7787"
-        }
-    ];
+    args.waiting_list.filter(function(all){
+    	return all.userInParking==false;
+    });
     res.json(args.waiting_list);
+});
+router.post("/set_user_in_park.html",function(req, res, next){
+	if(typeof(req.session.user_in_park)=='undefined'){
+		req.session.user_in_park=new Array();
+	}
+	args.waiting_list.filter(function(item){
+		if(item.id==req.body.user_id){
+			item.userInParking=true;
+		}
+		return true;
+	});
 });
 module.exports = router;

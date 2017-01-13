@@ -15,7 +15,38 @@ global.args.root = path.resolve(__dirname);
 global.args.fs=fs;
 global.args.ejs=ejs;
 global.args.toView={};
-global.args.waiting_list=new Array();
+global.args.waiting_list=[
+    {
+        "userInParking":false,
+        "id":"22",
+        "image":"images/default.jpg",
+        "name":"Krishna Sharma",
+        "date":"987897979",
+        "from":"",
+        "to":"",
+        "security":"7787"
+    },
+    {
+        "userInParking":false,
+        "id":"33",
+        "image":"images/default.jpg",
+        "name":"Fred Afra",
+        "date":"987897979",
+        "from":"",
+        "to":"",
+        "security":"7787"
+    },
+    {
+        "userInParking":true,
+        "id":"34",
+        "image":"images/default.jpg",
+        "name":"Daniel few",
+        "date":"987897979",
+        "from":"",
+        "to":"",
+        "security":"7787"
+    }
+];
 global.args.configs=require('./resources/configs.json');
 var aps = express();
 aps.use(bodyParser.json());

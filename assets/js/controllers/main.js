@@ -53,9 +53,10 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
         $scope.data=toView.data;
         tick(true);
     });
-    mockups.controller('waiting', function($scope,responseData,Factory) {
+    mockups.controller('waiting', function($scope,responseData,Factory,$location) {
         $scope.waiting_list=responseData;
         $scope.data=responseData[0];
+        $scope.clicked_user=false;
         tick(true);
         $scope.changeUserDetails=function(id){
             var found=$scope.waiting_list.filter(function(e) {return e.id == id;});
@@ -66,6 +67,13 @@ var mockups = angular.module('mockups', ['ngRoute','ngAnimate'])
         		$scope.waiting_list=res.data;
         		setTimeout($scope.updateWaitingList,1000)
         	});
+        }
+        $scope.enter=function(){
+        	var current_user_id=$scope.data.id;
+        	Factory.setUserInPark(current_user_id).then(function(){
+        		$location.path("/");
+        	});
+        	
         }
         $scope.updateWaitingList();
     });
