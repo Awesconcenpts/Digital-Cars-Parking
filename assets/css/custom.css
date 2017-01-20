@@ -303,3 +303,9 @@ body{
                 .waiting-list span{
                     font-size:11px;
                 }
+
+@media (max-width:992px) {
+.today-rate, .rate-input {
+    font-size: 19px;
+}
+}
